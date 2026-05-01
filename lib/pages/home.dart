@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:offline_gamebox/games/game_registery.dart';
 import 'package:offline_gamebox/pages/settings.dart';
+import 'package:offline_gamebox/widgets/game_card.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -9,7 +11,14 @@ class HomePage extends StatelessWidget {
     final cs = Theme.of(context).colorScheme;
     final tt = Theme.of(context).textTheme;
 
-    return Scaffold(body: Column(children: [CustomAppBar()]));
+    return Scaffold(
+      body: Column(
+        children: [
+          CustomAppBar(),
+          Expanded(child: GamesLister()),
+        ],
+      ),
+    );
   }
 }
 
@@ -38,6 +47,27 @@ class CustomAppBar extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class GamesLister extends StatelessWidget {
+  const GamesLister({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
+      padding: const EdgeInsets.all(16),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        crossAxisSpacing: 12,
+        mainAxisSpacing: 12,
+        childAspectRatio: 0.85,
+      ),
+      itemCount: gameRegistry.length,
+      itemBuilder: (context, idx) {
+        return GameCard(game: gameRegistry[idx]);
+      },
     );
   }
 }
