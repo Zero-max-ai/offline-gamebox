@@ -8,7 +8,7 @@ class ThemeToggleButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ValueListenableBuilder<ThemeMode>(
       valueListenable: themeNotifier,
-      builder: (_, mode, __) {
+      builder: (_, mode, _) {
         return IconButton(
           tooltip: _label(mode),
           icon: Icon(_icon(mode)),
