@@ -29,6 +29,7 @@ class AppTheme {
   static final light = ThemeData(
     useMaterial3: true,
     brightness: Brightness.light,
+    fontFamily: 'CascadiaMono',
     colorScheme: ColorScheme.fromSeed(
       seedColor: _primaryColor,
       brightness: Brightness.light,
@@ -38,6 +39,7 @@ class AppTheme {
   static final dark = ThemeData(
     useMaterial3: true,
     brightness: Brightness.dark,
+    fontFamily: 'CascadiaMono',
     colorScheme: ColorScheme.fromSeed(
       seedColor: _primaryColor,
       brightness: Brightness.dark,

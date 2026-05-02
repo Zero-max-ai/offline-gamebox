@@ -19,7 +19,7 @@ class CustomAppBar extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          const Text('Settings'),
+          Text('Settings', style: Theme.of(context).textTheme.bodyLarge,),
           Align(
             alignment: Alignment.centerLeft,
             child: IconButton(
@@ -32,4 +32,3 @@ class CustomAppBar extends StatelessWidget {
     );
   }
 }
-
