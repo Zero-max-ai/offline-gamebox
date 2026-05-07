@@ -8,15 +8,14 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cs = Theme.of(context).colorScheme;
-    final tt = Theme.of(context).textTheme;
-
     return Scaffold(
-      body: Column(
-        children: [
-          CustomAppBar(),
-          Expanded(child: GamesLister()),
-        ],
+      body: SafeArea(
+        child: Column(
+          children: [
+            const CustomAppBar(),
+            const Expanded(child: GamesLister()),
+          ],
+        ),
       ),
     );
   }
@@ -28,18 +27,18 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.fromLTRB(10, 30, 10, 5),
+      padding: const EdgeInsets.fromLTRB(10, 30, 10, 5),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           IconButton(
-            onPressed: () => {
+            onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Settings()),
-              ),
+                MaterialPageRoute(builder: (context) => const Settings()),
+              );
             },
-            icon: Icon(Icons.menu),
+            icon: const Icon(Icons.menu),
           ),
           ElevatedButton(
             onPressed: () => debugPrint("remove ads"),

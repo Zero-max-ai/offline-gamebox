@@ -1,7 +1,7 @@
 // lib/widgets/game_card.dart
 import 'package:flutter/material.dart';
-import 'package:offline_gamebox/games/game_registery.dart';
-import 'package:offline_gamebox/pages/settings.dart';
+import 'package:offline_gamebox/games/game_launch_panel.dart';
+import 'package:offline_gamebox/games/game_model.dart';
 
 class GameCard extends StatelessWidget {
   final GameMeta game;
@@ -12,15 +12,14 @@ class GameCard extends StatelessWidget {
     return GestureDetector(
       onTap: () => Navigator.push(
         context,
-        MaterialPageRoute(builder: (_) => Settings()),
-        // MaterialPageRoute(builder: (_) => game.builder()),
+        MaterialPageRoute(builder: (_) => GameLaunchPanel(game: game)),
       ),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           border: Border.all(width: 0.5, color: Colors.white24),
           image: DecorationImage(
-            image: AssetImage('assets/images/${game.image}'),
+            image: AssetImage('assets/images/${game.assetImage}'),
             fit: BoxFit.cover,
           ),
         ),
@@ -30,7 +29,10 @@ class GameCard extends StatelessWidget {
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: [Colors.transparent, Colors.black.withOpacity(0.75)],
+              colors: [
+                Colors.transparent,
+                Colors.black.withValues(alpha: 0.75),
+              ],
             ),
           ),
           padding: const EdgeInsets.all(16),

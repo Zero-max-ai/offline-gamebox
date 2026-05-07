@@ -1,30 +1,35 @@
-import 'package:flutter/material.dart';
+import 'package:offline_gamebox/games/game_model.dart';
+import 'package:offline_gamebox/games/snake/snake.dart';
+import 'package:offline_gamebox/games/twenty48/twenty48.dart';
 
-class GameMeta {
-  final String id;
-  final String title;
-  final String image;
-  // final Widget Function() builder;
-
-  const GameMeta({
-    required this.id,
-    required this.title,
-    required this.image,
-    // required this.builder,
-  });
-}
-
-const List<GameMeta> gameRegistry = [
-  GameMeta(
-    id: 'snake',
-    title: 'Snake',
-    image: '2048-game.jpg',
-    // builder: SnakeGame.new,
-  ),
+final List<GameMeta> gameRegistry = [
   GameMeta(
     id: '2048',
     title: '2048',
-    image: '2048-game.jpg',
-    // builder: NumberGame.new,
+    assetImage: '2048-game.jpg',
+    description:
+        'Slide and merge matching numbers to reach 2048 before the grid fills up.',
+    builder: (config) => Twenty48(config: config),
   ),
+  // GameMeta(
+  //   id: 'sliding_puzzle',
+  //   title: 'Sliding Puzzle',
+  //   description: '',
+  //   assetImage: '2048-game.jpg',
+  //   // builder: SlidingPuzzle.new,
+  // ),
+  // GameMeta(
+  //   id: 'snake',
+  //   title: 'Snake',
+  //   assetImage: '2048-game.jpg',
+  //   description: '',
+  //   builder: (config) => Snake(config: config),
+  // ),
+  // GameMeta(
+  //   id: 'sudoku',
+  //   title: 'Sudoku',
+  //   assetImage: '2048-game.jpg',
+  //   description: '',
+  //   // builder: Sudoku.new,
+  // ),
 ];
